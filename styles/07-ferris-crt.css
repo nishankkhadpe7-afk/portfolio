@@ -1,0 +1,27 @@
+/* =====================================================================
+   07 · FERRIS & CRT — the desktop crab and the scanline overlay.
+   ===================================================================== */
+.ferris{position:absolute;bottom:6px;z-index:7000;width:58px;height:40px;pointer-events:none}
+.f-body{width:58px;height:40px;pointer-events:auto;color:#a33a14;filter:drop-shadow(0 4px 6px rgba(0,0,0,.45))}
+.f-body svg{width:100%;height:100%;overflow:visible}
+.f-shell{fill:#f74c00}
+.f-spikes{fill:none;stroke:#f74c00;stroke-width:3;stroke-linejoin:round}
+.f-claw{fill:#f74c00;transform-box:fill-box}
+.f-claw.l{transform-origin:right bottom}.f-claw.r{transform-origin:left bottom}
+.f-eye{fill:#111}
+.ferris.walking .f-legs{animation:scuttle .32s steps(2) infinite}
+.ferris.walking .f-claw.l{animation:snipL 1.6s ease-in-out infinite}
+.ferris.walking .f-claw.r{animation:snipR 1.6s ease-in-out infinite .8s}
+.ferris.hop .f-body{animation:hop .42s var(--ease-spring)}
+@keyframes scuttle{50%{transform:translateY(-1.5px)}}
+@keyframes snipL{50%{transform:rotate(-14deg)}}
+@keyframes snipR{50%{transform:rotate(14deg)}}
+@keyframes hop{40%{transform:translateY(-14px)}}
+.f-bubble{position:absolute;bottom:48px;left:-70px;width:230px;padding:10px 12px;border-radius:10px;background:rgba(8,17,34,.97);border:1px solid var(--line2);font-size:12.5px;line-height:1.45;color:var(--ink);box-shadow:0 12px 30px rgba(0,0,0,.5);pointer-events:auto;animation:palIn .2s var(--ease-spring)}
+.f-bubble::after{content:'';position:absolute;left:92px;bottom:-6px;width:10px;height:10px;background:inherit;border-right:1px solid var(--line2);border-bottom:1px solid var(--line2);transform:rotate(45deg)}
+.f-bubble button{display:block;margin-top:6px;color:var(--ice);font:11.5px var(--mono)}
+
+.crt{position:fixed;inset:0;z-index:30000;pointer-events:none;opacity:0;transition:opacity .3s;
+  background:repeating-linear-gradient(0deg,rgba(0,0,0,.22) 0 1px,transparent 1px 3px),radial-gradient(ellipse at center,transparent 60%,rgba(0,0,0,.45) 100%);mix-blend-mode:multiply}
+.crt.on{opacity:1;animation:flicker 6s infinite}
+@keyframes flicker{0%,100%{opacity:1}48%{opacity:.94}50%{opacity:.98}}

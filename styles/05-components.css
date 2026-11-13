@@ -1,0 +1,39 @@
+/* ---------- shared bits ---------- */
+.pad{padding:18px 20px}
+.eyebrow{font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.h1{font:600 26px/1.15 var(--display);letter-spacing:.01em;text-wrap:balance;margin:2px 0 4px}
+.h2{font:600 17px/1.25 var(--display);letter-spacing:.02em;margin:0;text-wrap:balance}
+.muted{color:var(--mute)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:500 11.5px var(--mono);padding:3px 8px;border-radius:4px;background:var(--blueSoft);color:#b8d3ff;border:1px solid rgba(var(--acc-rgb),.25);white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:7px;height:32px;padding:0 13px;border-radius:6px;border:1px solid var(--line2);background:var(--glass2);font-size:13px;font-weight:500}
+.btn:hover{border-color:var(--blue);background:rgba(var(--acc-rgb),.2)}
+.btn.pri{background:var(--blue);border-color:var(--blue);color:#04101f}
+.btn.pri:hover{background:#5a9dff}
+.btn .ic{width:15px;height:15px}
+.demo-note{font:11.5px var(--mono);color:var(--dim);margin:0;padding:8px 14px;border-top:1px solid var(--line);background:rgba(4,10,22,.5)}
+.sev{font:600 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:3px;white-space:nowrap}
+.sev.critical{background:rgba(255,92,112,.18);color:var(--crit)}
+.sev.high{background:rgba(255,138,76,.16);color:var(--high)}
+.sev.medium{background:rgba(255,184,77,.15);color:var(--warn)}
+.sev.low{background:rgba(var(--ice-rgb),.12);color:var(--ice)}
+.sev.info{background:rgba(139,162,195,.14);color:var(--mute)}
+.sev.ok{background:rgba(69,216,147,.15);color:var(--ok)}
+.split{display:grid;grid-template-columns:minmax(200px,260px) 1fr;height:100%;min-height:0}
+.split>*{min-width:0;min-height:0;overflow:auto}
+.side{border-right:1px solid var(--line);background:rgba(4,10,22,.45);padding:10px}
+.row-btn{width:100%;text-align:left;display:flex;gap:10px;align-items:flex-start;padding:9px 10px;border-radius:7px;border:1px solid transparent}
+.row-btn:hover{background:rgba(var(--acc-rgb),.08)}
+.row-btn.sel{background:rgba(var(--acc-rgb),.16);border-color:var(--line2)}
+.row-btn .ic{width:18px;height:18px;color:var(--ice);flex:none;margin-top:2px}
+.row-btn b{display:block;font-weight:500;font-size:13.5px}
+.row-btn small{display:block;color:var(--mute);font-size:12px;line-height:1.35}
+.side h5{font:500 10.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:10px 10px 6px}
+ul.pts{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+ul.pts li{position:relative;padding-left:18px;max-width:68ch}
+ul.pts li::before{content:'›';position:absolute;left:3px;color:var(--blue);font-weight:700}
+
+/* NishankOS: grid panes size rows to content so tall children (images,
+   diagrams) are never squeezed by an overflow:auto ancestor. */
+.ct-view,.pj-det,.cy-right,.fx-main,.fx-side,.bp-body,.cn,.st,.br-side,.pad{grid-auto-rows:max-content}
+.diagram svg{aspect-ratio:790/400;height:auto}

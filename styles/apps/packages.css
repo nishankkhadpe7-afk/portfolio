@@ -1,0 +1,19 @@
+/* ---------- packages ---------- */
+.pk{display:flex;flex-direction:column;height:100%}
+.pk-bar{display:flex;gap:8px;padding:10px 12px;border-bottom:1px solid var(--line);flex-wrap:wrap;align-items:center}
+.pk-bar .m-search{margin:0;flex:1;min-width:160px}
+.flt{display:flex;gap:4px;flex-wrap:wrap}
+.flt button{font:500 11.5px var(--mono);padding:4px 9px;border-radius:4px;border:1px solid var(--line);color:var(--mute)}
+.flt button.on{border-color:var(--blue);color:var(--ink);background:var(--blueSoft)}
+.pk-tbl{flex:1;overflow:auto}
+.pk-tbl table{width:100%;border-collapse:collapse;font:12.5px var(--mono)}
+.pk-tbl th{position:sticky;top:0;background:#0b1830;text-align:left;font-weight:500;color:var(--dim);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;padding:7px 12px;border-bottom:1px solid var(--line)}
+.pk-tbl td{padding:7px 12px;border-bottom:1px solid rgba(22,48,79,.6);vertical-align:top}
+.pk-tbl td:first-child{color:var(--ok);white-space:nowrap}
+.pk-tbl td.sec{color:var(--ice);white-space:nowrap}
+.pk-tbl td.use{color:var(--mute);font-family:var(--sans)}
+.pk-foot{font:11.5px var(--mono);color:var(--dim);padding:7px 12px;border-top:1px solid var(--line)}
+
+/* NishankOS additions */
+.pk-tbl td.ver{color:var(--warn);white-space:nowrap}
+.pk-tbl tr:hover td{background:rgba(var(--acc-rgb),.06)}

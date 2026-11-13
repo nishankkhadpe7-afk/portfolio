@@ -1,0 +1,12 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "bash scripts/vercel-build.sh",
+  "outputDirectory": "dist",
+  "installCommand": "echo 'Rust toolchain is installed by the build script'",
+  "headers": [
+    {
+      "source": "/(.*).wasm",
+      "headers": [{ "key": "Content-Type", "value": "application/wasm" }, { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    }
+  ]
+}

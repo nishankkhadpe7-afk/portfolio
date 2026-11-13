@@ -1,0 +1,12 @@
+# Trunk bundles the Rust crate (→ wasm32), the stylesheets and /assets.
+#   trunk serve            dev server with live reload on http://127.0.0.1:8080
+#   trunk build --release  optimised build into ./dist
+
+[build]
+target = "index.html"
+dist = "dist"
+
+[serve]
+addresses = ["127.0.0.1"]
+port = 8080
+open = false

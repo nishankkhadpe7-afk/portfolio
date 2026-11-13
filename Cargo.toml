@@ -1,0 +1,31 @@
+[package]
+name = "nishank-os"
+version = "2026.3.0"
+edition = "2021"
+description = "NishankOS — Nishank Khadpe's portfolio as a Kali-inspired desktop OS, written in Rust and compiled to WebAssembly."
+license = "MIT"
+
+[dependencies]
+leptos = { version = "0.6", features = ["csr"] }
+wasm-bindgen = "0.2"
+js-sys = "0.3"
+serde_json = "1"
+console_error_panic_hook = "0.1"
+
+[dependencies.web-sys]
+version = "0.3"
+features = [
+  "Window", "Document", "Element", "HtmlElement", "HtmlCanvasElement", "HtmlInputElement",
+  "HtmlTextAreaElement", "HtmlAnchorElement", "CanvasRenderingContext2d", "CanvasGradient",
+  "DomRect", "Performance", "KeyboardEvent", "MouseEvent", "PointerEvent", "Event", "EventTarget",
+  "Navigator", "Clipboard", "Blob", "BlobPropertyBag", "Url", "Worker", "MessageEvent",
+  "ErrorEvent", "FileList", "File", "DomTokenList", "CssStyleDeclaration", "Storage", "Location",
+  "MediaQueryList", "WheelEvent", "Selection", "FileReader",
+]
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true

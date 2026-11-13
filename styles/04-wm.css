@@ -1,0 +1,49 @@
+/* =====================================================================
+   04 · WINDOW MANAGER — states the Rust WM toggles: focus, minimise,
+   snap (max / left / right), the 8 resize grips, and the snap ghost.
+   ===================================================================== */
+.win{transition:opacity .2s var(--ease-out),transform .22s var(--ease-out),visibility 0s}
+.win.moving{transition:none;user-select:none}
+.win.moving .wb{pointer-events:none}
+.win.min{opacity:0;transform:translateY(40px) scale(.9);pointer-events:none;visibility:hidden;transition:opacity .2s,transform .22s var(--ease-out),visibility 0s .22s}
+.win.snap-l,.win.snap-r{top:0!important;width:50%!important;height:100%!important;border-radius:0}
+.win.snap-l{left:0!important}
+.win.snap-r{left:50%!important}
+.win.max,.win.snap-l,.win.snap-r{transition:left .18s var(--ease-out),top .18s var(--ease-out),width .18s var(--ease-out),height .18s var(--ease-out)}
+.win:not(.focused) .tb{filter:saturate(.6) brightness(.9)}
+
+/* resize grips: invisible hit areas hugging each edge and corner */
+.rz{position:absolute;z-index:3}
+.rz-n,.rz-s{left:10px;right:10px;height:6px;cursor:ns-resize}
+.rz-n{top:0}.rz-s{bottom:0}
+.rz-e,.rz-w{top:10px;bottom:10px;width:6px;cursor:ew-resize}
+.rz-e{right:0}.rz-w{left:0}
+.rz-ne,.rz-nw,.rz-se,.rz-sw{width:14px;height:14px}
+.rz-ne{top:0;right:0;cursor:nesw-resize}.rz-sw{bottom:0;left:0;cursor:nesw-resize}
+.rz-nw{top:0;left:0;cursor:nwse-resize}.rz-se{bottom:0;right:0;cursor:nwse-resize}
+.win.max .rz,.win.snap-l .rz,.win.snap-r .rz{display:none}
+.win .rz-se::after{content:'';position:absolute;right:6px;bottom:6px;width:7px;height:7px;border-right:1.5px solid var(--line2);border-bottom:1.5px solid var(--line2);opacity:.8}
+
+/* the translucent preview of where a window will snap */
+.snap-ghost{position:absolute;z-index:8000;pointer-events:none;border:2px solid rgba(var(--acc-rgb),.7);background:rgba(var(--acc-rgb),.12);border-radius:12px;opacity:0;inset:50%;transition:all .18s var(--ease-out);backdrop-filter:blur(2px)}
+.snap-ghost.on{opacity:1}
+.snap-ghost.on.max{inset:6px}
+.snap-ghost.on.l{inset:6px 50% 6px 6px}
+.snap-ghost.on.r{inset:6px 6px 6px 50%}
+
+/* desktop icon polish */
+.dicon span{max-width:84px;overflow:hidden;text-overflow:ellipsis}
+.dicon:active .ic{transform:scale(.9)}
+.dicon .ic{transition:transform .15s var(--ease-spring)}
+.dicon:hover .ic{transform:translateY(-2px)}
+
+/* panel extras */
+.pbtn.brand .av-hex.sm{width:20px;height:20px}
+.pbtn.brand.on{background:var(--blueSoft)}
+.meter-chip{height:24px;display:inline-flex;align-items:center;gap:5px;padding:0 8px;margin:0 2px;border-radius:12px;border:1px solid var(--line);font:500 11px var(--mono);color:var(--mute);font-variant-numeric:tabular-nums}
+.meter-chip .ic{width:13px;height:13px;color:var(--ok)}
+.meter-chip:hover{border-color:var(--line2);color:var(--ink)}
+.av-hex.sigil-bg{position:absolute;width:min(38vw,440px);height:auto}
+.av-hex.sigil-bg svg{height:auto}
+#desk{background:radial-gradient(ellipse at 70% 30%,var(--desk-a) 0%,var(--deep) 45%,var(--void) 100%)}
+#desk.custom canvas.wall{display:none}

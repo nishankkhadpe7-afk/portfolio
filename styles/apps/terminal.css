@@ -1,0 +1,25 @@
+/* ---------- terminal ---------- */
+.term{background:rgba(3,8,18,.92);font:13px/1.55 var(--mono);padding:10px 14px 14px;cursor:text}
+.t-out>div{white-space:pre-wrap;word-break:break-word}
+.t-b{color:var(--blue)} .t-u{color:var(--ice);font-weight:600} .t-d{color:var(--ink);font-weight:600}
+.t-g{color:var(--ok)} .t-y{color:var(--warn)} .t-r{color:var(--crit)} .t-m{color:var(--mute)}
+.t-in{display:flex;flex-direction:column}
+.t-in .ln{display:flex;align-items:center}
+.t-in input{flex:1;background:none;border:0;outline:0;color:var(--ink);font:13px var(--mono);padding:0 0 0 8px;min-width:0;caret-color:var(--ice)}
+.t-link{color:var(--ice);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.t-link:hover{color:#fff}
+.nf{display:flex;flex-wrap:wrap;gap:6px 22px;align-items:flex-start}
+.nf pre{margin:0;color:var(--blue);font:12px/1.2 var(--mono)}
+.nf .sw{display:inline-block;width:18px;height:10px;margin-right:2px}
+.t-tbl{display:grid;grid-template-columns:auto auto 1fr;gap:0 18px}
+
+/* NishankOS additions */
+.term{height:100%;overflow:auto}
+.t-c{color:var(--ice)}
+.t-pr{white-space:pre-wrap;margin-top:4px}
+.t-in.busy{opacity:.45}
+.nf{position:relative;margin:4px 0}
+.nf pre{text-shadow:0 0 12px rgba(var(--acc-rgb),.5)}
+.nf-sigil{position:absolute;right:4px;top:4px;width:64px;height:64px;color:var(--blue);opacity:.18}
+.nf-sigil svg{width:100%;height:100%}
+.term a.t-link{color:var(--ice)}

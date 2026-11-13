@@ -1,0 +1,21 @@
+/* ---------- certs ---------- */
+.ct-view{padding:18px;display:grid;gap:14px;align-content:start}
+.ct-img{border-radius:8px;overflow:hidden;border:1px solid var(--line2);background:#fff;max-width:720px}
+.ct-img img{display:block;width:100%;height:auto}
+.ct-card{max-width:620px;aspect-ratio:1.414;border-radius:8px;border:1px solid var(--line2);padding:clamp(16px,4%,34px);display:flex;flex-direction:column;justify-content:space-between;
+  background:radial-gradient(ellipse at 85% 0%,rgba(var(--acc-rgb),.22),transparent 55%),linear-gradient(160deg,#0e203f,#081428);position:relative;overflow:hidden}
+.ct-card::after{content:'';position:absolute;right:-40px;bottom:-40px;width:180px;height:180px;border:1px solid rgba(var(--ice-rgb),.15);border-radius:50%;box-shadow:0 0 0 22px rgba(var(--ice-rgb),.04)}
+.ct-card .t{font:600 clamp(18px,3.4vw,26px)/1.15 var(--display);text-wrap:balance}
+.ct-card .nm{font:500 15px var(--sans);color:var(--ice)}
+.ct-card .ft{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font:11.5px var(--mono);color:var(--mute)}
+.ct-facts{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;font-size:13px;max-width:620px}
+.ct-facts dt{font:12px var(--mono);color:var(--dim)}
+.ct-facts dd{margin:0}
+
+/* NishankOS additions */
+.ct-view{animation:fadeUp .25s var(--ease-out)}
+.ct-card.award{background:radial-gradient(ellipse at 85% 0%,rgba(255,184,77,.22),transparent 55%),linear-gradient(160deg,#1a1a33,#0a1226)}
+.ct-seal{position:absolute;right:26px;top:24px;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;border:1.5px solid rgba(var(--ice-rgb),.5);color:var(--ice);box-shadow:0 0 0 5px rgba(var(--ice-rgb),.06)}
+.ct-card.award .ct-seal{color:var(--warn);border-color:rgba(255,184,77,.6)}
+.ct-seal .ic{width:24px;height:24px}
+.ct-facts code{font:12px var(--mono);color:var(--ice)}

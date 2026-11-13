@@ -1,0 +1,24 @@
+/* =====================================================================
+   01 · BASE — resets, typography, the icon primitive.
+   ===================================================================== */
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--void);color:var(--ink);font:14px/1.5 var(--sans);overflow:hidden;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+input,select,textarea{font:inherit;color:inherit}
+a{color:var(--ice)}
+:focus-visible{outline:2px solid var(--ice);outline-offset:2px}
+svg{display:block}
+::selection{background:rgba(var(--acc-rgb),.38)}
+.ic{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.sprite{position:absolute;width:0;height:0;overflow:hidden}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* thin themed scrollbars everywhere */
+*{scrollbar-width:thin;scrollbar-color:var(--line2) transparent}
+*::-webkit-scrollbar{width:9px;height:9px}
+*::-webkit-scrollbar-thumb{background:var(--line2);border-radius:9px;border:2px solid transparent;background-clip:padding-box}
+*::-webkit-scrollbar-track{background:transparent}
+
+/* the loading splash that index.html shows until the wasm module mounts */
+#splash{position:fixed;inset:0;display:grid;place-items:center;background:var(--void);color:var(--dim);font:12px var(--mono);letter-spacing:.2em;text-transform:uppercase}

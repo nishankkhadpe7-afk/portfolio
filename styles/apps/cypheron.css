@@ -1,0 +1,44 @@
+/* ---------- cypheron ---------- */
+.cy{display:flex;flex-direction:column;height:100%}
+.cy-bar{display:flex;gap:8px;padding:12px 14px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.cy-url{flex:1;min-width:180px;display:flex;align-items:center;gap:8px;height:34px;padding:0 10px;border:1px solid var(--line2);border-radius:6px;background:var(--deep);font:13px var(--mono)}
+.cy-url input{flex:1;background:none;border:0;outline:0;min-width:0}
+.cy-url .ic{width:15px;height:15px;color:var(--ok)}
+.cy-main{flex:1;min-height:0;display:grid;grid-template-columns:240px 1fr}
+.cy-main>*{min-width:0;min-height:0;overflow:auto}
+.cy-left{border-right:1px solid var(--line);padding:14px;display:flex;flex-direction:column;gap:14px}
+.grade{display:flex;gap:14px;align-items:center}
+.grade-l{width:72px;height:72px;border-radius:10px;display:grid;place-items:center;font:700 40px var(--display);border:2px solid currentColor;flex:none}
+.grade small{display:block;font:11px var(--mono);color:var(--dim);text-transform:uppercase;letter-spacing:.1em}
+.grade b{font:600 24px var(--display);font-variant-numeric:tabular-nums}
+.mods{display:grid;gap:5px}
+.mod{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;font-size:12.5px}
+.mod i{grid-column:1/-1;height:3px;border-radius:2px;background:var(--line);overflow:hidden;display:block}
+.mod i::after{content:'';display:block;height:100%;width:var(--p,0%);background:var(--blue);transition:width .25s}
+.mod.done i::after{background:var(--ok)}
+.mod em{font:normal 11px var(--mono);color:var(--dim)}
+.counts{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;text-align:center}
+.counts div{padding:6px 0;border-radius:5px;background:rgba(4,10,22,.5)}
+.counts b{display:block;font:600 16px var(--display)}
+.counts span{font:9.5px var(--mono);text-transform:uppercase;color:var(--dim)}
+.cy-right{padding:14px;display:grid;gap:12px;align-content:start}
+.ai-box{border:1px solid var(--line2);border-radius:8px;padding:12px 14px;background:linear-gradient(135deg,rgba(var(--acc-rgb),.1),rgba(var(--ice-rgb),.03))}
+.ai-box .eyebrow{display:flex;align-items:center;gap:6px}
+.ai-box p{margin:6px 0 0;max-width:72ch}
+.finding{border:1px solid var(--line);border-radius:8px;background:rgba(4,10,22,.35);overflow:hidden}
+.finding summary{display:flex;gap:10px;align-items:center;padding:9px 12px;cursor:pointer;list-style:none}
+.finding summary::-webkit-details-marker{display:none}
+.finding summary b{flex:1;font-weight:500;font-size:13px;min-width:0}
+.finding summary em{font:normal 11px var(--mono);color:var(--dim)}
+.finding .fd{padding:0 12px 12px;font-size:13px;color:var(--mute);display:grid;gap:6px}
+.finding .fd code{font:12px var(--mono);color:var(--ice)}
+.cy-log{font:11.5px/1.6 var(--mono);color:var(--dim);background:rgba(3,8,18,.7);border-radius:6px;padding:8px 10px;max-height:150px;overflow:auto}
+.cy-log .g{color:var(--ok)}
+
+/* NishankOS additions */
+.grade.scanning .grade-l{color:var(--blue);border-style:dashed;animation:spin 6s linear infinite}
+.grade.scanning .grade-l .spin{animation:none;border:0}
+.counts .c-critical b{color:var(--crit)}.counts .c-high b{color:var(--high)}.counts .c-medium b{color:var(--warn)}.counts .c-low b{color:var(--ice)}.counts .c-info b{color:var(--mute)}
+.finding{animation:fadeUp .25s var(--ease-out)}
+.ai-box{animation:fadeUp .3s var(--ease-out)}
+.ai-box .ic{width:14px;height:14px}

@@ -1,0 +1,38 @@
+/* ---------- blueprints ---------- */
+.bp{display:flex;flex-direction:column;height:100%}
+.tabs{display:flex;gap:2px;padding:8px 10px 0;border-bottom:1px solid var(--line);overflow-x:auto;flex:none}
+.tab{padding:7px 14px;border-radius:6px 6px 0 0;font:500 13px var(--display);letter-spacing:.04em;color:var(--mute);border:1px solid transparent;border-bottom:0;white-space:nowrap}
+.tab.on{background:rgba(var(--acc-rgb),.12);color:var(--ink);border-color:var(--line)}
+.bp-body{flex:1;min-height:0;overflow:auto;padding:14px;display:grid;gap:12px;align-content:start;
+  background-image:linear-gradient(rgba(var(--acc-rgb),.06) 1px,transparent 1px),linear-gradient(90deg,rgba(var(--acc-rgb),.06) 1px,transparent 1px);background-size:24px 24px}
+.diagram{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:rgba(3,8,18,.6)}
+.diagram svg{min-width:760px;width:100%;height:auto}
+.dg-node rect{fill:#0c1c36;stroke:var(--line2);stroke-width:1.2}
+.dg-node.k-ext rect{fill:#0a1424;stroke:#3a5478;stroke-dasharray:4 3}
+.dg-node.k-ai rect{fill:#0f2547;stroke:var(--blue)}
+.dg-node.k-db rect{fill:#0b1d2c;stroke:#2f6d80}
+.dg-node text{font-family:var(--mono);fill:var(--ink);font-size:12px}
+.dg-node text.s{fill:var(--mute);font-size:10px}
+.dg-edge{fill:none;stroke:var(--blue);stroke-width:1.4;stroke-dasharray:5 5;opacity:.85;animation:flow 1.2s linear infinite}
+.dg-lbl{font-family:var(--mono);font-size:9.5px;fill:var(--ice)}
+@keyframes flow{to{stroke-dashoffset:-20}}
+.notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.note{padding:11px 13px;border:1px solid var(--line);border-radius:8px;background:rgba(4,10,22,.75)}
+.note b{display:block;font:600 13px var(--display);letter-spacing:.03em;margin-bottom:3px;color:var(--ice)}
+.note span{color:var(--mute);font-size:12.5px}
+
+/* NishankOS additions */
+.dg-head{fill:var(--blue)}
+.dg-lbg{fill:#07101f;stroke:var(--line);stroke-width:.6}
+.dg-node{cursor:default;transition:opacity .2s}
+.dg-node rect{transition:stroke .2s,filter .2s}
+.dg-e{transition:opacity .2s}
+.diagram.hovering .dg-node:not(.near){opacity:.35}
+.diagram.hovering .dg-e:not(.lit){opacity:.12}
+.dg-node.near rect{stroke:var(--ice);filter:drop-shadow(0 0 6px rgba(var(--ice-rgb),.5))}
+.dg-e.lit .dg-edge{stroke:var(--ice);stroke-width:2;opacity:1}
+.bp-legend{display:flex;flex-wrap:wrap;gap:14px;align-items:center;font:11.5px var(--mono);color:var(--mute)}
+.bp-legend i{display:inline-block;width:12px;height:9px;border-radius:2px;margin-right:6px;vertical-align:middle;border:1px solid}
+.lg-svc{background:#0c1c36;border-color:var(--line2)!important}.lg-ai{background:#0f2547;border-color:var(--blue)!important}
+.lg-db{background:#0b1d2c;border-color:#2f6d80!important}.lg-ext{border-style:dashed!important;border-color:#3a5478!important}
+.bp-legend em{margin-left:auto;color:var(--dim);font-style:normal}

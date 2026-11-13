@@ -1,0 +1,53 @@
+/* =====================================================================
+   06 · OVERLAYS — menu extras, command palette, overview, toasts.
+   ===================================================================== */
+#menu{animation:dropIn .16s var(--ease-out);transform-origin:top left}
+@keyframes dropIn{from{opacity:0;transform:translateY(-6px) scale(.98)}}
+.m-foot kbd,.pal-in kbd,.pal-foot kbd{font:10.5px var(--mono);color:var(--dim);border:1px solid var(--line2);border-radius:4px;padding:0 5px;margin-left:4px}
+#ctx{animation:dropIn .12s var(--ease-out)}
+
+/* ---- command palette ---- */
+.pal-scrim{position:absolute;inset:0;z-index:9800;background:rgba(2,6,14,.45);backdrop-filter:blur(3px);display:flex;justify-content:center;align-items:flex-start;padding-top:min(14vh,120px);animation:fadeIn .15s}
+@keyframes fadeIn{from{opacity:0}}
+.palette{width:min(640px,calc(100% - 24px));max-height:min(520px,calc(100% - 140px));display:flex;flex-direction:column;background:rgba(7,15,30,.97);border:1px solid var(--line2);border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px rgba(var(--acc-rgb),.12),0 0 60px rgba(var(--acc-rgb),.1);overflow:hidden;animation:palIn .2s var(--ease-spring)}
+@keyframes palIn{from{opacity:0;transform:translateY(-10px) scale(.97)}}
+.pal-in{display:flex;align-items:center;gap:10px;padding:0 14px;height:52px;border-bottom:1px solid var(--line)}
+.pal-in .ic{width:20px;height:20px;color:var(--blue)}
+.pal-in input{flex:1;background:none;border:0;outline:0;font-size:16px;min-width:0}
+.pal-list{overflow:auto;padding:6px}
+.pal-item{width:100%;display:grid;grid-template-columns:22px 1fr auto;gap:12px;align-items:center;padding:8px 10px;border-radius:7px;text-align:left}
+.pal-item .ic{color:var(--ice)}
+.pal-item.sel{background:rgba(var(--acc-rgb),.16);box-shadow:inset 2px 0 0 var(--blue)}
+.pi-t{min-width:0}
+.pi-t b{display:block;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pi-t small{display:block;color:var(--mute);font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pal-item em{font:normal 10.5px var(--mono);color:var(--dim);text-transform:uppercase;letter-spacing:.1em}
+.pal-empty{color:var(--mute);text-align:center;padding:22px 10px;margin:0}
+.pal-foot{display:flex;gap:16px;padding:8px 14px;border-top:1px solid var(--line);font:11px var(--mono);color:var(--dim)}
+.pal-foot span:last-child{margin-left:auto}
+
+/* ---- overview (F3) ---- */
+.expose{position:absolute;inset:0;z-index:9700;background:rgba(2,6,14,.72);backdrop-filter:blur(10px);padding:28px;overflow:auto;animation:fadeIn .18s}
+.ex-head{display:flex;align-items:baseline;gap:12px;margin-bottom:18px}
+.ex-head b{font:600 22px var(--display);letter-spacing:.04em}
+.ex-head span{color:var(--mute);font:12px var(--mono)}
+.ex-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.ex-card{position:relative;text-align:left;border:1px solid var(--line2);border-radius:10px;background:var(--glass);padding:10px;display:flex;flex-direction:column;gap:8px;animation:palIn .25s var(--ease-spring) backwards}
+.ex-card:nth-child(2){animation-delay:.03s}.ex-card:nth-child(3){animation-delay:.06s}.ex-card:nth-child(4){animation-delay:.09s}
+.ex-card:hover,.ex-card.on{border-color:var(--blue);box-shadow:0 0 0 1px var(--blue),0 12px 40px rgba(var(--acc-rgb),.18)}
+.ex-mini{position:relative;aspect-ratio:16/10;border-radius:6px;background:radial-gradient(ellipse at 70% 30%,var(--desk-a),var(--void));overflow:hidden;border:1px solid var(--line)}
+.ex-mini i{position:absolute;border:1px solid var(--line2);background:var(--glass2);border-radius:4px;display:grid;place-items:center;box-shadow:0 6px 16px rgba(0,0,0,.4)}
+.ex-mini i .ic{width:22px;height:22px;color:var(--ice);opacity:.8}
+.ex-card>span{display:flex;align-items:center;gap:8px;font-size:13px}
+.ex-card>span .ic{width:15px;height:15px;color:var(--blue)}
+.ex-card em{position:absolute;top:6px;right:6px;width:24px;height:24px;border-radius:6px;display:grid;place-items:center;background:rgba(0,0,0,.4);opacity:0;transition:opacity .15s}
+.ex-card:hover em{opacity:1}
+.ex-card em:hover{background:var(--crit)}
+.ex-card em .ic{width:13px;height:13px}
+.ex-empty{color:var(--mute);text-align:center;margin-top:12vh;font-size:15px}
+
+/* ---- toast life bar ---- */
+.toast{position:relative;overflow:hidden}
+.toast .ic{color:var(--blue)}
+.toast-life{position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--blue);transform-origin:left;animation:life 5.6s linear forwards;opacity:.7}
+@keyframes life{to{transform:scaleX(0)}}
