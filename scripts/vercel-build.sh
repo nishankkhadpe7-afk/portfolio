@@ -14,13 +14,13 @@ if ! command -v rustup >/dev/null 2>&1; then
     | RUSTUP_INIT_SKIP_PATH_CHECK=yes sh -s -- -y --profile minimal --default-toolchain none --no-modify-path
 fi
 # rust-toolchain.toml pins the channel and target; this installs them.
-rustup show active-toolchain || rustup toolchain install stable --profile minimal
-rustup target add wasm32-unknown-unknown
+rustup toolchain install stable --profile minimal --target wasm32-unknown-unknown
 
 TRUNK_VERSION="${TRUNK_VERSION:-v0.22.1}"
 if ! command -v trunk >/dev/null 2>&1; then
+  # musl build: statically linked, so it runs on Vercel's older glibc.
   mkdir -p "$CARGO_HOME/bin"
-  curl -sSL "https://github.com/trunk-rs/trunk/releases/download/${TRUNK_VERSION}/trunk-x86_64-unknown-linux-gnu.tar.gz" \
+  curl -sSL "https://github.com/trunk-rs/trunk/releases/download/${TRUNK_VERSION}/trunk-x86_64-unknown-linux-musl.tar.gz" \
     | tar -xz -C "$CARGO_HOME/bin"
 fi
 
